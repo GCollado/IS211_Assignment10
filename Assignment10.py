@@ -73,6 +73,13 @@ def select_all_artists(con):
     for row in rows:
         print('  {}  |  {}  '.format(row[0], row[1]))
 
+
+def run_sql_file():
+    fd = open('music.sql', 'r')
+    script = fd.read()
+    c.executescript(script)
+    fd.close()
+
 def main():
     conn = establish_connection()
     with conn:
@@ -91,4 +98,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
